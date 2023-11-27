@@ -1,0 +1,32 @@
+﻿<Window x:Class="HW6_ProductList.Models.CartWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HW6_ProductList.Models"
+        mc:Ignorable="d"
+        Title="CartWindow" Height="450" Width="800" Background="LawnGreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0" Margin="50">
+            <TextBlock FontWeight="Black">Quantity</TextBlock>
+            <TextBlock FontWeight="Black" x:Name="countTextBox" Text="{Binding Count}"></TextBlock>
+            <TextBlock FontWeight="Black">Total Price:</TextBlock>
+            <TextBlock FontWeight="Black" x:Name="priceTextBox" Text="{Binding Total, StringFormat=C}"></TextBlock>
+        </StackPanel>
+        <ListBox Grid.Column="2" Name="cartListBox" Margin="30 20 300 20" HorizontalAlignment="Stretch" ItemsSource="{Binding}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock FontWeight="Bold" HorizontalAlignment="Center" Text="{Binding Name}"></TextBlock>
+                        <TextBlock FontWeight="Bold" HorizontalAlignment="Center" Text="{Binding Price}"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</Window>

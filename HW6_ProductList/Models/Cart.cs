@@ -52,5 +52,9 @@ namespace HW6_ProductList.Models
                 }
             }
         }
+        public void RemoveFromCart(Product product) 
+        {
+
+        }
     }
 }

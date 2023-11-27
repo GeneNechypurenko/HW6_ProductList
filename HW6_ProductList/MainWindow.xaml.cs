@@ -38,5 +38,10 @@ namespace HW6_ProductList
 
             cart.AddToCart(selectedProduct);
         }
+        private void cartButton_Click(object sender, RoutedEventArgs e)
+        {
+            CartWindow cartWindow = new CartWindow(cart);
+            cartWindow.Show();
+        }
     }
 }
