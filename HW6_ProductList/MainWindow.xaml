@@ -43,22 +43,22 @@
             </StackPanel>
         </Grid>
 
-        <ListBox Grid.Row="1" x:Name="productListBox" Margin="10" ItemsSource="{Binding Products}">
+        <ListBox Grid.Row="1" x:Name="productListBox" Margin="95 0" ItemsSource="{Binding Products}" Grid.ColumnSpan="5" HorizontalContentAlignment="Center">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Grid HorizontalAlignment="Stretch">
+                    <Grid Grid.IsSharedSizeScope="True">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"></RowDefinition>
                             <RowDefinition Height="Auto"></RowDefinition>
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="0.2*"></ColumnDefinition>
-                            <ColumnDefinition Width="0.2*"></ColumnDefinition>
-                            <ColumnDefinition Width="0.2*"></ColumnDefinition>
-                            <ColumnDefinition Width="0.2*"></ColumnDefinition>
-                            <ColumnDefinition Width="0.2*"></ColumnDefinition>
-                            <ColumnDefinition Width="0.2*"></ColumnDefinition>
-                            <ColumnDefinition Width="0.2*"></ColumnDefinition>
+                            <ColumnDefinition Width="*" SharedSizeGroup="Column1"></ColumnDefinition>
+                            <ColumnDefinition Width="*" SharedSizeGroup="Column1"></ColumnDefinition>
+                            <ColumnDefinition Width="*" SharedSizeGroup="Column1"></ColumnDefinition>
+                            <ColumnDefinition Width="*" SharedSizeGroup="Column1"></ColumnDefinition>
+                            <ColumnDefinition Width="*" SharedSizeGroup="Column1"></ColumnDefinition>
+                            <ColumnDefinition Width="*" SharedSizeGroup="Column1"></ColumnDefinition>
+                            <ColumnDefinition Width="*" SharedSizeGroup="Column1"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
 
                         <StackPanel Grid.Row="0" Grid.Column="0" Margin="10 0 0 0">

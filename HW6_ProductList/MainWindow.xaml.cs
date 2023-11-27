@@ -36,11 +36,7 @@ namespace HW6_ProductList
             Button buyButton = (Button)sender;
             Product selectedProduct = (Product)buyButton.Tag;
 
-            selectedProduct.Quantity--;
-            if (!cart.Products.Contains(selectedProduct))
-            {
-                cart.AddToCart(selectedProduct);
-            }
+            cart.AddToCart(selectedProduct);
         }
     }
 }
