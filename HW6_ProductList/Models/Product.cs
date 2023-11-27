@@ -11,6 +11,7 @@ namespace HW6_ProductList.Models
         public string Id { get; set; } = Guid.NewGuid().ToString();
         public string Name { get; set; }
         public decimal Price { get; set; }
+        public int ToCart { get; set; } = 0;
 
         private int _quantity;
         public int Quantity

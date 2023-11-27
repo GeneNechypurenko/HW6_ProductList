@@ -25,5 +25,12 @@ namespace HW6_ProductList.Models
             cartListBox.ItemsSource = Cart.Products;
             DataContext = Cart;
         }
+        private void removeButton_Click(object sender, RoutedEventArgs e)
+        {
+            Button removeButton = (Button)sender;
+            Product selectedProduct = (Product)removeButton.Tag;
+
+            Cart.RemoveFromCart(selectedProduct);
+        }
     }
 }

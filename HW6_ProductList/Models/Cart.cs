@@ -34,6 +34,7 @@ namespace HW6_ProductList.Models
                     Total += existingProduct.Price;
                     Count += 1;
                     existingProduct.Quantity--;
+                    existingProduct.ToCart++;
 
                     OnPropertyChanged(nameof(existingProduct.Quantity));
                     OnPropertyChanged(nameof(Total));
@@ -43,6 +44,7 @@ namespace HW6_ProductList.Models
                 {
                     Products.Add(product);
                     product.Quantity--;
+                    product.ToCart++;
                     Count += 1;
                     Total += product.Price;
 
@@ -54,7 +56,11 @@ namespace HW6_ProductList.Models
         }
         public void RemoveFromCart(Product product) 
         {
-
+            Product existingProduct = Products.FirstOrDefault(p => p.Id == product.Id);
+            existingProduct.Quantity += existingProduct.ToCart;
+            Total -= existingProduct.Price * existingProduct.ToCart;
+            Count -= existingProduct.ToCart;
+            Products.Remove(existingProduct);
         }
     }
 }

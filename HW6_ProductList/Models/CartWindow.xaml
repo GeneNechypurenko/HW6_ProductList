@@ -10,20 +10,22 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"></ColumnDefinition>
             <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.Column="0" Margin="50">
-            <TextBlock FontWeight="Black">Quantity</TextBlock>
-            <TextBlock FontWeight="Black" x:Name="countTextBox" Text="{Binding Count}"></TextBlock>
+        <StackPanel Grid.Column="0" Margin="20" Orientation="Horizontal">
             <TextBlock FontWeight="Black">Total Price:</TextBlock>
             <TextBlock FontWeight="Black" x:Name="priceTextBox" Text="{Binding Total, StringFormat=C}"></TextBlock>
         </StackPanel>
-        <ListBox Grid.Column="2" Name="cartListBox" Margin="30 20 300 20" HorizontalAlignment="Stretch" ItemsSource="{Binding}">
+        <ListBox Grid.Column="1" Name="cartListBox" Margin="20" HorizontalAlignment="Stretch" ItemsSource="{Binding}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel>
-                        <TextBlock FontWeight="Bold" HorizontalAlignment="Center" Text="{Binding Name}"></TextBlock>
-                        <TextBlock FontWeight="Bold" HorizontalAlignment="Center" Text="{Binding Price}"></TextBlock>
+                    <StackPanel Orientation="Horizontal" Margin="10">
+                        <TextBlock FontWeight="Bold" HorizontalAlignment="Center" Text="{Binding Name}" Margin="50 10 10 10"></TextBlock>
+                        <TextBlock FontWeight="Bold" HorizontalAlignment="Center" Text="{Binding Price, StringFormat=C}" Margin="10"></TextBlock>
+                        <TextBlock FontWeight="Bold" HorizontalAlignment="Center" Text="x" Margin="10"></TextBlock>
+                        <TextBlock FontWeight="Bold" HorizontalAlignment="Center" Text="{Binding ToCart}" Margin="0 10 10 10"></TextBlock>
+                        <Button x:Name="removeButton" Tag="{Binding}" FontWeight="Black" Content="REMOVE" Width="Auto" Height="Auto" Click="removeButton_Click"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
